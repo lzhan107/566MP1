@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified">
+
+	<!-- Simple types definition -->
+	<xs:simpleType name="stringtype">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="integertype">
+		<xs:restriction base="xs:integer"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="unitstype">
+                <!-- base type has been changed from integer to string-->
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="totaltype">
+		<xs:restriction base="xs:integer"></xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="fattype">
+		<xs:restriction base="xs:integer"></xs:restriction>
+	</xs:simpleType>
+
+	<!-- Complex types definitions -->
+	<xs:complexType name="total-fattype">
+            <!--<xs:attribute name="units" type="unitstype"></xs:attribute>
+                This element must not have any element, instead it should have simpleContent with extension,
+                same for below elements
+            -->
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="saturated-fattype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="cholesteroltype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="sodiumtype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="carbtype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="fibertype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="proteintype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="servingtype">
+		<xs:simpleContent>
+                       <xs:extension base="unitstype">
+                           <xs:attribute name="units"></xs:attribute>
+                       </xs:extension>
+                </xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="caloriestype">
+		<xs:attribute name="total" type="totaltype"></xs:attribute>
+		<xs:attribute name="fat" type="fattype"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="vitaminstype">
+		<xs:sequence>
+			<xs:element name="a" type="integertype"></xs:element>
+			<xs:element name="c" type="integertype"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="mineralstype">
+		<xs:sequence>
+			<xs:element name="ca" type="integertype"></xs:element>
+			<xs:element name="fe" type="integertype"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="daily-valuestype">
+		<xs:sequence>
+			<xs:element name="total-fat" type="total-fattype"></xs:element>
+			<xs:element name="saturated-fat" type="saturated-fattype"></xs:element>
+			<xs:element name="cholesterol" type="cholesteroltype"></xs:element>
+			<xs:element name="sodium" type="sodiumtype"></xs:element>
+			<xs:element name="carb" type="carbtype"></xs:element>
+			<xs:element name="fiber" type="fibertype"></xs:element>
+			<xs:element name="protein" type="proteintype"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="foodtype">
+		<xs:sequence>
+			<xs:element name="name" type="stringtype"></xs:element>
+			<xs:element name="mfr" type="stringtype"></xs:element>
+			<xs:element name="serving" type="servingtype"></xs:element>
+			<xs:element name="calories" type="caloriestype"></xs:element>
+			<xs:element name="total-fat" type="total-fattype"></xs:element>
+			<xs:element name="saturated-fat" type="saturated-fattype"></xs:element>
+			<xs:element name="cholesterol" type="cholesteroltype"></xs:element>
+			<xs:element name="sodium" type="sodiumtype"></xs:element>
+			<xs:element name="carb" type="carbtype"></xs:element>
+			<xs:element name="fiber" type="fibertype"></xs:element>
+			<xs:element name="protein" type="proteintype"></xs:element>
+			<xs:element name="vitamins" type="vitaminstype"></xs:element>
+			<xs:element name="minerals" type="mineralstype"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nutritiontype">
+		<xs:sequence>
+			<xs:element name="daily-values" type="daily-valuestype"></xs:element>
+			<xs:element name="food" type="foodtype" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+        <!--Added-->
+        <xs:element name="nutrition" type="nutritiontype"></xs:element>
+</xs:schema>

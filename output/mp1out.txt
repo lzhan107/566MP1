@@ -1,0 +1,17 @@
+Output
+Marshalling successfully, please go to instanceDocs/nutritionMarshalled.xml and check.
+
+
+Output: 
+Unmarshalling successfully, result for nutrition object:
+Nutrition{dailyValues=DailyValues{totalFat=TotalFat{value=65, units=g}, saturatedFat=SaturatedFat{value=20, units=g}, cholesterol=Cholesterol{value=300, units=mg}, sodium=Sodium{value=2400, units=mg}, carb=Carb{value=300, units=g}, fiber=Fiber{value=25, units=g}, protein=Protein{value=50, units=g}}, food=[Food{name=Avocado Dip, mfr=Sunnydale, serving=Serving{value=29, units=g}, calories=Calories{value=, total=110, fat=100}, totalFat=11, saturatedFat=3, cholesterol=5, sodium=210, carb=2, fiber=0, protein=1, vitamins=Vitamins{a=0, c=0}, minerals=Minerals{ca=0, fe=0}}, Food{name=Bagels, New York Style , mfr=Thompson, serving=Serving{value=104, units=g}, calories=Calories{value=, total=300, fat=35}, totalFat=4, saturatedFat=1, cholesterol=0, sodium=510, carb=54, fiber=3, protein=11, vitamins=Vitamins{a=0, c=0}, minerals=Minerals{ca=8, fe=20}}, Food{name=Beef Frankfurter, Quarter Pound , mfr=Armitage, serving=Serving{value=115, units=g}, calories=Calories{value=, total=370, fat=290}, totalFat=32, saturatedFat=15, cholesterol=65, sodium=1100, carb=8, fiber=0, protein=13, vitamins=Vitamins{a=0, c=2}, minerals=Minerals{ca=1, fe=6}}, Food{name=Chicken Pot Pie, mfr=Lakeson, serving=Serving{value=198, units=g}, calories=Calories{value=, total=410, fat=200}, totalFat=22, saturatedFat=9, cholesterol=25, sodium=810, carb=42, fiber=2, protein=10, vitamins=Vitamins{a=20, c=2}, minerals=Minerals{ca=2, fe=10}}]}
+
+
+Output:
+Validation against Russian Doll Schema successfull!
+
+
+Output:
+Validation against Venetian Salami Slice successfull!
+
+

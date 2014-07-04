@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <!-- Define the attributes -->
+    <xs:attribute name="units" type="xs:string"></xs:attribute>
+    <xs:attribute name="total" type="xs:string"></xs:attribute>
+    <xs:attribute name="fat" type="xs:string"></xs:attribute>
+
+    <!-- Define simple elements -->
+    <xs:element name="name" type="xs:string"></xs:element>
+    <xs:element name="mfr" type="xs:string"></xs:element>
+    <xs:element name="a" type="xs:integer"></xs:element>
+    <xs:element name="c" type="xs:integer"></xs:element>
+    <xs:element name="ca" type="xs:integer"></xs:element>
+    <xs:element name="fe" type="xs:integer"></xs:element>
+    <!--base type has been changed from integer to string-->
+    <!-- Deifine complex elemennts -->
+    <xs:element name="total-fat">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>        	
+    </xs:element>
+    <xs:element name="saturated-fat">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="cholesterol">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sodium">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="carb">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fiber">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="protein">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="serving">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="units"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="calories">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="total"></xs:attribute>
+                    <xs:attribute ref="fat"></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vitamins">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="a"></xs:element>
+                <xs:element ref="c"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="minerals">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="ca"></xs:element>
+                <xs:element ref="fe"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="daily-values">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="total-fat"></xs:element>
+                <xs:element ref="saturated-fat"></xs:element>
+                <xs:element ref="cholesterol"></xs:element>
+                <xs:element ref="sodium"></xs:element>
+                <xs:element ref="carb"></xs:element>
+                <xs:element ref="fiber"></xs:element>
+                <xs:element ref="protein"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="food">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name"></xs:element>
+                <xs:element ref="mfr"></xs:element>
+                <xs:element ref="serving"></xs:element>
+                <xs:element ref="calories"></xs:element>
+                <xs:element ref="total-fat"></xs:element>
+                <xs:element ref="saturated-fat"></xs:element>
+                <xs:element ref="cholesterol"></xs:element>
+                <xs:element ref="sodium"></xs:element>
+                <xs:element ref="carb"></xs:element>
+                <xs:element ref="fiber"></xs:element>
+                <xs:element ref="protein"></xs:element>
+                <xs:element ref="vitamins"></xs:element>
+                <xs:element ref="minerals"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nutrition">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="daily-values"></xs:element>
+                <xs:element ref="food" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>	
